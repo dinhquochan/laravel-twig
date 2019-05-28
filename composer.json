@@ -1,0 +1,54 @@
+{
+    "name": "dinhquochan/laravel-twig",
+    "description": "Twig Template for Laravel Framework",
+    "keywords": [
+        "twig",
+        "laravel-twig",
+        "laravel-template"
+    ],
+    "homepage": "https://github.com/dinhquochan/laravel-twig",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dinh Quoc Han",
+            "email": "contact@dinhquochan.com",
+            "homepage": "https://dinhquochan.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "larapack/dd": "^1.0",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DinhQuocHan\\LaravelTwig\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DinhQuocHan\\LaravelTwig\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DinhQuocHan\\LaravelTwig\\LaravelTwigServiceProvider"
+            ],
+            "aliases": {
+                "LaravelTwig": "DinhQuocHan\\LaravelTwig\\LaravelTwigFacade"
+            }
+        }
+    }
+}
