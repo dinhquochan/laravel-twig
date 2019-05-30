@@ -52,7 +52,6 @@ abstract class TestCase extends BaseTestCase
         return new TwigLoader($finder);
     }
 
-
     protected function getApplication(array $customConfig = [])
     {
         return tap(new Application, function ($app) {
