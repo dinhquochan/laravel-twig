@@ -37,7 +37,7 @@ You call the Twig template like you would any other view:
 
 ```php
 // Normal (template.html.twig or template.css.twig or template.twig)
-return view('template', ['some_variable' => 'some_values]);
+return view('template', ['some_variable' => 'some_values']);
 
 // With vender namespace
 return view('vendor_namespace::template', $data);
