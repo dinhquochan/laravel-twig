@@ -2,6 +2,6 @@
 
 All notable changes to `laravel-twig` will be documented in this file
 
-## 1.0.0 - 201X-XX-XX
+## 0.0.1 - 2019-30-05
 
 - initial release

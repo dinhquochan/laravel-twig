@@ -1,10 +1,15 @@
-# Very short description of the package
+# Laravel Twig
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dinhquochan/laravel-twig.svg?style=flat-square)](https://packagist.org/packages/dinhquochan/laravel-twig)
 [![Build Status](https://img.shields.io/travis/dinhquochan/laravel-twig/master.svg?style=flat-square)](https://travis-ci.org/dinhquochan/laravel-twig)
 [![Total Downloads](https://img.shields.io/packagist/dt/dinhquochan/laravel-twig.svg?style=flat-square)](https://packagist.org/packages/dinhquochan/laravel-twig)
 
-This is where your description should go. Try and limit it to a paragraph or two.
+Allows you to use [Twig](https://twig.symfony.com/) in [Laravel](https://laravel.com/).
+
+## Requirements
+
+- PHP >= 7.1.3
+- Laravel >= 5.8.*
 
 ## Installation
 
@@ -14,16 +19,86 @@ You can install the package via composer:
 composer require dinhquochan/laravel-twig
 ```
 
+If you don't use auto-discovery, add the ServiceProvider to the providers array in config/app.php
+
+```php
+\DinhQuocHan\LaravelTwig\TwigServiceProvider::class,
+```
+
+If you want to use the facade to extended twig extensions, add this to your facades in app.php:
+
+```php
+'Twig' => \DinhQuocHan\LaravelTwig\Facades\Twig::class,
+```
+
 ## Usage
 
-``` php
-$skeleton = new Spatie\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
+You call the Twig template like you would any other view:
+
+```php
+// Normal (template.html.twig or template.css.twig or template.twig)
+return view('template', ['some_variable' => 'some_values]);
+
+// With vender namespace
+return view('vendor_namespace::template', $data);
 ```
+
+Read more in [Twig for Template Designers](https://twig.symfony.com/doc/2.x/templates.html) or [Laravel Views](https://laravel.com/docs/5.7/views).
+
+### Extending Twig
+
+Laravel Twig allows you to define your own custom filters, functions, globals, token parsers or extensions.
+
+The following example creates a `{{ product.price|money_format }}` filter which formats a given `$product->price`:
+
+```php
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use DinhQuocHan\LaravelTwig\Facades\Twig;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register bindings in the container.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Twig::addFilter(new TwigFilter('money_format', function ($price) {
+            return sprintf('%d %s', number_format($price), 'US$');
+        }));
+    }
+}
+```
+
+**Available methods:**
+
+- `Twig::addGlobal(string $name, $value)` Creating a global
+- `Twig::addFilter(\Twig\TwigFilter $filter)` Creating a filter
+- `Twig::addFunction(\Twig\TwigFunction $function)` Creating a function
+- `Twig::addTest(\Twig\TwigTest $test)` Creating a test
+- `Twig::addTokenParser(\Twig\TokenParser\TokenParserInterface $parser)` Creating a token parser
+- `Twig::addExtension(\Twig\Extension\ExtensionInterface $extension)` Creating a extension
+
+Read more in [Twig for Template Designers](https://twig.symfony.com/doc/2.x/advanced.html).
 
 ### Testing
 
-``` bash
+```bash
 composer test
 ```
 
