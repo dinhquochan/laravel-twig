@@ -1,11 +1,6 @@
 {
     "name": "dinhquochan/laravel-twig",
     "description": "Twig Template for Laravel Framework",
-    "keywords": [
-        "twig",
-        "laravel-twig",
-        "laravel-template"
-    ],
     "homepage": "https://github.com/dinhquochan/laravel-twig",
     "license": "MIT",
     "authors": [
@@ -17,10 +12,16 @@
         }
     ],
     "require": {
-        "php": "^7.1"
+        "php": "^7.1.3",
+        "ext-json": "*",
+        "illuminate/support": "~5.8",
+        "illuminate/view": "~5.8",
+        "twig/twig": "~2.0"
     },
     "require-dev": {
         "larapack/dd": "^1.0",
+        "laravel/framework": "~5.8.0",
+        "mockery/mockery": "^1.0",
         "phpunit/phpunit": "^7.0"
     },
     "autoload": {
