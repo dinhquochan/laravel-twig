@@ -1,15 +1,15 @@
 <?php
 
-namespace DinhQuocHan\LaravelTwig\Tests;
+namespace DinhQuocHan\Twig\Tests;
 
 use Mockery as m;
 use Illuminate\View\Factory;
+use DinhQuocHan\Twig\TwigLoader;
 use Illuminate\View\FileViewFinder;
+use DinhQuocHan\Twig\TwigEnvironment;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application;
-use DinhQuocHan\LaravelTwig\TwigLoader;
 use Illuminate\View\Engines\EngineResolver;
-use DinhQuocHan\LaravelTwig\TwigEnvironment;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase

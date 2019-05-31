@@ -22,13 +22,13 @@ composer require dinhquochan/laravel-twig
 If you don't use auto-discovery, add the ServiceProvider to the providers array in config/app.php
 
 ```php
-\DinhQuocHan\LaravelTwig\TwigServiceProvider::class,
+\DinhQuocHan\Twig\TwigServiceProvider::class,
 ```
 
 If you want to use the facade to extended twig extensions, add this to your facades in app.php:
 
 ```php
-'Twig' => \DinhQuocHan\LaravelTwig\Facades\Twig::class,
+'Twig' => \DinhQuocHan\Twig\Facades\Twig::class,
 ```
 
 ## Usage
@@ -57,7 +57,7 @@ The following example creates a `{{ product.price|money_format }}` filter which 
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use DinhQuocHan\LaravelTwig\Facades\Twig;
+use DinhQuocHan\Twig\Facades\Twig;
 
 class AppServiceProvider extends ServiceProvider
 {

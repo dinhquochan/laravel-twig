@@ -1,6 +1,6 @@
 <?php
 
-namespace DinhQuocHan\LaravelTwig\Tests;
+namespace DinhQuocHan\Twig\Tests;
 
 class TwigLoaderTest extends TestCase
 {

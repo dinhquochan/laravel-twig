@@ -1,8 +1,8 @@
 <?php
 
-namespace DinhQuocHan\LaravelTwig\Tests;
+namespace DinhQuocHan\Twig\Tests;
 
-use DinhQuocHan\LaravelTwig\TwigServiceProvider;
+use DinhQuocHan\Twig\TwigServiceProvider;
 
 class TwigServiceProviderTest extends TestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace DinhQuocHan\LaravelTwig\Tests;
+namespace DinhQuocHan\Twig\Tests;
 
 use Mockery as m;
-use DinhQuocHan\LaravelTwig\Facades\Twig;
-use DinhQuocHan\LaravelTwig\TwigServiceProvider;
+use DinhQuocHan\Twig\Facades\Twig;
+use DinhQuocHan\Twig\TwigServiceProvider;
 
 class TwigFacadeTest extends TestCase
 {
@@ -18,7 +18,7 @@ class TwigFacadeTest extends TestCase
     {
         $app = $this->bootApplication();
 
-        $this->assertInstanceOf('\DinhQuocHan\LaravelTwig\TwigEnvironment', Twig::getFacadeRoot());
+        $this->assertInstanceOf('\DinhQuocHan\Twig\TwigEnvironment', Twig::getFacadeRoot());
     }
 
     protected function bootApplication()

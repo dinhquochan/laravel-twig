@@ -1,6 +1,6 @@
 <?php
 
-namespace DinhQuocHan\LaravelTwig;
+namespace DinhQuocHan\Twig;
 
 use Illuminate\Support\ServiceProvider;
 

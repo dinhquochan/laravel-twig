@@ -1,6 +1,6 @@
 <?php
 
-namespace DinhQuocHan\LaravelTwig\Facades;
+namespace DinhQuocHan\Twig\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void addTokenParser(\Twig\TokenParser\TokenParserInterface $parser)
  * @method static void addExtension(\Twig\Extension\ExtensionInterface $extension)
  *
- * @see \DinhQuocHan\LaravelTwig\TwigEnvironment
+ * @see \DinhQuocHan\Twig\TwigEnvironment
  */
 class Twig extends Facade
 {

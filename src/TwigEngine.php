@@ -1,6 +1,6 @@
 <?php
 
-namespace DinhQuocHan\LaravelTwig;
+namespace DinhQuocHan\Twig;
 
 use Illuminate\Contracts\View\Engine;
 
@@ -9,14 +9,14 @@ class TwigEngine implements Engine
     /**
      * Twig Environment.
      *
-     * @var \DinhQuocHan\LaravelTwig\TwigEnvironment
+     * @var \DinhQuocHan\Twig\TwigEnvironment
      */
     protected $environment;
 
     /**
      * Twig Engine constructor.
      *
-     * @param  \DinhQuocHan\LaravelTwig\TwigEnvironment  $environment
+     * @param  \DinhQuocHan\Twig\TwigEnvironment  $environment
      */
     public function __construct(TwigEnvironment $environment)
     {

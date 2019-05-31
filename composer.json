@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "DinhQuocHan\\LaravelTwig\\": "src"
+            "DinhQuocHan\\Twig\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "DinhQuocHan\\LaravelTwig\\Tests\\": "tests"
+            "DinhQuocHan\\Twig\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -44,10 +44,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "DinhQuocHan\\LaravelTwig\\LaravelTwigServiceProvider"
+                "DinhQuocHan\\Twig\\TwigServiceProvider"
             ],
             "aliases": {
-                "Twig": "DinhQuocHan\\LaravelTwig\\Facades\\Twig"
+                "Twig": "DinhQuocHan\\Twig\\Facades\\Twig"
             }
         }
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace DinhQuocHan\LaravelTwig\Tests;
+namespace DinhQuocHan\Twig\Tests;
 
-use DinhQuocHan\LaravelTwig\TwigEngine;
+use DinhQuocHan\Twig\TwigEngine;
 
 class TwigEngineTest extends TestCase
 {
