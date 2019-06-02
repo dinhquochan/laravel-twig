@@ -15,7 +15,8 @@ class TwigServiceProvider extends ServiceProvider
     {
         $this->registerTwigLoader();
         $this->registerTwigEnvironment();
-        $this->registerTwigEngine();
+        $this->registerEngineResolver();
+        $this->registerViewExtensions();
         $this->registerCommands();
     }
 
@@ -37,9 +38,8 @@ class TwigServiceProvider extends ServiceProvider
     protected function registerTwigLoader()
     {
         $this->app->bind('twig.loader', function ($app) {
-            return new TwigLoader($app['view.finder']);
+            return new TwigLoader($app['view']);
         });
-        $this->app->alias('twig.loader', TwigLoader::class);
     }
 
     /**
@@ -60,16 +60,30 @@ class TwigServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register twig engine.
+     * Register the engine resolver instance.
      *
      * @return void
      */
-    public function registerTwigEngine()
+    public function registerEngineResolver()
     {
-        $this->app->bind('twig.engine', function ($app) {
-            return new TwigEngine($app['twig.environment']);
+        $this->app->extend('view.engine.resolver', function ($resolver) {
+            $this->registerTwigEngine($resolver);
+
+            return $resolver;
         });
-        $this->app->alias('twig.engine', TwigEngine::class);
+    }
+
+    /**
+     * Register twig engine.
+     *
+     * @param  \Illuminate\View\Engines\EngineResolver  $resolver
+     * @return void
+     */
+    public function registerTwigEngine($resolver)
+    {
+        $resolver->register('twig', function () {
+            return new TwigEngine($this->app['twig.environment']);
+        });
     }
 
     /**
@@ -77,12 +91,10 @@ class TwigServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerViewExtension()
+    protected function registerViewExtensions()
     {
         foreach (['twig', 'html.twig', 'css.twig'] as $extension) {
-            $this->app['view']->addExtension($extension, 'twig', function () {
-                return $this->app['twig.engine'];
-            });
+            $this->app['view']->addExtension($extension, 'twig');
         }
     }
 
@@ -108,7 +120,7 @@ class TwigServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'twig.loader', 'twig.environment', 'twig.engine',
+            'twig.loader', 'twig.environment',
         ];
     }
 }

@@ -44,12 +44,13 @@ abstract class TestCase extends BaseTestCase
         $filesystem = new Filesystem();
 
         $finder = new FileViewFinder($filesystem, [__DIR__.'/views']);
-
         $finder->addExtension('twig');
-
         $finder->addNamespace('namespace', __DIR__.'/views');
 
-        return new TwigLoader($finder);
+        $view = m::mock(Factory::class);
+        $view->shouldReceive('getFinder')->andReturn($finder);
+
+        return new TwigLoader($view);
     }
 
     protected function getApplication(array $customConfig = [])
