@@ -25,11 +25,24 @@ class TwigFacadeTest extends TestCase
     {
         $app = $this->getApplication();
 
-        $app['view.finder'] = m::mock(\Illuminate\View\ViewFinderInterface::class);
-        $app['config'] = [
+        $app['auth'] = m::mock('Illuminate\Contracts\Auth\Factory');
+
+        $app['view.finder'] = m::mock('Illuminate\View\ViewFinderInterface');
+
+        $app['config'] = new \Illuminate\Config\Repository([
             'app.debug' => true,
             'view.compiled' => __DIR__.'/compiled',
-        ];
+        ]);
+
+        $app['request'] = m::mock('Illuminate\Http\Request');
+
+        $app['session'] = m::mock('Illuminate\Session\SessionManager');
+
+        $app['session.store'] = m::mock('Illuminate\Session\Store');
+
+        $app['Illuminate\Contracts\Auth\Access\Gate'] = new \Illuminate\Auth\Access\Gate($app, function () {
+            //
+        });
 
         $provider = new TwigServiceProvider($app);
         $provider->register();
