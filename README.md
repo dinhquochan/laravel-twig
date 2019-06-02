@@ -96,6 +96,44 @@ class AppServiceProvider extends ServiceProvider
 
 Read more in [Twig for Template Designers](https://twig.symfony.com/doc/2.x/advanced.html).
 
+### Built-in Laravel Extensions
+
+- `\DinhQuocHan\Twig\Extensions\Arr::class`
+- `\DinhQuocHan\Twig\Extensions\Auth::class`
+- `\DinhQuocHan\Twig\Extensions\Config::class`
+- `\DinhQuocHan\Twig\Extensions\Dump::class`
+- `\DinhQuocHan\Twig\Extensions\Gate::class`
+- `\DinhQuocHan\Twig\Extensions\Path::class`
+- `\DinhQuocHan\Twig\Extensions\Request::class`
+- `\DinhQuocHan\Twig\Extensions\Session::class`
+- `\DinhQuocHan\Twig\Extensions\Str::class`
+- `\DinhQuocHan\Twig\Extensions\Translator::class`
+- `\DinhQuocHan\Twig\Extensions\Url::class`
+
+**Functions:**
+
+- `array_*`, `data_*`, `head`, `last`
+- `auth`, `auth_check`, `auth_guest`, `auth_user`, `auth_guard`
+- `config`, `config_get`, `config_has`
+- `dump`, `dd`
+- `can`, `cant`, `cannot`, `allows`, `denies`
+- `*_path`, `mix`
+- `request`, `request_has`,  `request_exists`, `request_filled`, `request_input`,  `request_query`,  `request_is`,  `current_url`,  `current_full_url`,  `current_full_url_with_query`, `old`
+- `session`, `session_has`, `session_get`, `session_put`, `session_pull`, `session_forget`, `csrf_token`, `csrf_field`, `method_field`
+- `str_*` (All the `Str::*` methods, `snake_case`, `camel_case`, `studly_case`, `kebab_case`)
+- `__`, `trans`, `trans_choice`
+- `action`, `asset`, `url`, `route`, `secure_url`, `secure_asset`
+
+**Filters:**
+
+- `*_path`, `mix`
+- `str_*` (All the `Str::*` methods, `snake_case`, `camel_case`, `studly_case`, `kebab_case`)
+- `__`, `trans`, `trans_choice`
+- `action`, `asset`, `url`, `route`, `secure_url`, `secure_asset`
+
+**Global variables:**
+- `app`: the `Illuminate\Foundation\Application::class` object
+
 ### Testing
 
 ```bash
