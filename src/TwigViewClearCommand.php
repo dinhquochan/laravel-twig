@@ -2,8 +2,8 @@
 
 namespace DinhQuocHan\Twig;
 
-use Illuminate\Foundation\Console\ViewClearCommand;
 use RuntimeException;
+use Illuminate\Foundation\Console\ViewClearCommand;
 
 class TwigViewClearCommand extends ViewClearCommand
 {

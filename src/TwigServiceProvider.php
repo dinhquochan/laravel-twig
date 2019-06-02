@@ -6,6 +6,20 @@ use Illuminate\Support\ServiceProvider;
 
 class TwigServiceProvider extends ServiceProvider
 {
+    protected $extensions = [
+        \DinhQuocHan\Twig\Extensions\Arr::class,
+        \DinhQuocHan\Twig\Extensions\Auth::class,
+        \DinhQuocHan\Twig\Extensions\Config::class,
+        \DinhQuocHan\Twig\Extensions\Dump::class,
+        \DinhQuocHan\Twig\Extensions\Gate::class,
+        \DinhQuocHan\Twig\Extensions\Path::class,
+        \DinhQuocHan\Twig\Extensions\Request::class,
+        \DinhQuocHan\Twig\Extensions\Session::class,
+        \DinhQuocHan\Twig\Extensions\Str::class,
+        \DinhQuocHan\Twig\Extensions\Translator::class,
+        \DinhQuocHan\Twig\Extensions\Url::class,
+    ];
+
     /**
      * Register the application services.
      *
@@ -55,6 +69,10 @@ class TwigServiceProvider extends ServiceProvider
                 'debug' => $app['config']['app.debug'],
             ]), function (TwigEnvironment $environment) use ($app) {
                 $environment->addGlobal('app', $app);
+
+                foreach ($this->extensions as $extension) {
+                    $environment->addExtension($app->make($extension));
+                }
             });
         });
     }
@@ -105,11 +123,9 @@ class TwigServiceProvider extends ServiceProvider
      */
     protected function registerCommands()
     {
-        // if ($this->app->runningInConsole()) {
-        //     $this->commands([
-        //         \Qh\Twig\Console\ViewTwigClearCommand::class,
-        //     ]);
-        // }
+         $this->app->extend('command.view.clear', function ($abstract, $app) {
+             return new TwigViewClearCommand($app['files']);
+         });
     }
 
     /**
