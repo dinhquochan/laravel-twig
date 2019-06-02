@@ -2,7 +2,6 @@
 
 namespace DinhQuocHan\Twig\Extensions;
 
-use Twig\TwigFilter;
 use Twig\TwigFunction;
 use Illuminate\Support\Str;
 use Twig\Extension\AbstractExtension;

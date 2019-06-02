@@ -2,7 +2,6 @@
 
 namespace DinhQuocHan\Twig\Extensions;
 
-use Twig\TwigTest;
 use Twig\TwigFunction;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\ExtensionInterface;
@@ -16,7 +15,7 @@ class Request extends AbstractExtension implements ExtensionInterface
     protected $request;
 
     /**
-     * Create a new request extension
+     * Create a new request extension.
      *
      * @param \Illuminate\Http\Request
      */
