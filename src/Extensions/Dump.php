@@ -2,9 +2,9 @@
 
 namespace DinhQuocHan\Twig\Extensions;
 
-use Twig\TwigFunction;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\ExtensionInterface;
+use Twig\TwigFunction;
 
 class Dump extends AbstractExtension implements ExtensionInterface
 {

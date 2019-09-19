@@ -2,13 +2,13 @@
 
 namespace DinhQuocHan\Twig\Tests;
 
-use Mockery as m;
 use DinhQuocHan\Twig\Facades\Twig;
 use DinhQuocHan\Twig\TwigServiceProvider;
+use Mockery as m;
 
 class TwigFacadeTest extends TestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         m::close();
     }

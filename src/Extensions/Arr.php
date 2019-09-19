@@ -2,10 +2,10 @@
 
 namespace DinhQuocHan\Twig\Extensions;
 
-use Twig\TwigFunction;
 use Illuminate\Support\Str;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\ExtensionInterface;
+use Twig\TwigFunction;
 
 class Arr extends AbstractExtension implements ExtensionInterface
 {

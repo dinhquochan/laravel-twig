@@ -2,10 +2,10 @@
 
 namespace DinhQuocHan\Twig\Extensions;
 
-use Twig\TwigFunction;
+use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\ExtensionInterface;
-use Illuminate\Contracts\Auth\Access\Gate as GateContract;
+use Twig\TwigFunction;
 
 class Gate extends AbstractExtension implements ExtensionInterface
 {

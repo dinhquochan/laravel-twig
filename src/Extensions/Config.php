@@ -2,10 +2,10 @@
 
 namespace DinhQuocHan\Twig\Extensions;
 
-use Twig\TwigFunction;
+use Illuminate\Contracts\Config\Repository;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\ExtensionInterface;
-use Illuminate\Contracts\Config\Repository;
+use Twig\TwigFunction;
 
 class Config extends AbstractExtension implements ExtensionInterface
 {

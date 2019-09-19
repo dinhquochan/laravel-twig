@@ -2,10 +2,10 @@
 
 namespace DinhQuocHan\Twig\Extensions;
 
-use Twig\TwigFunction;
-use Twig\Extension\AbstractExtension;
 use Illuminate\Contracts\Auth\Factory;
+use Twig\Extension\AbstractExtension;
 use Twig\Extension\ExtensionInterface;
+use Twig\TwigFunction;
 
 class Auth extends AbstractExtension implements ExtensionInterface
 {

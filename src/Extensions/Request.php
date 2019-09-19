@@ -2,10 +2,10 @@
 
 namespace DinhQuocHan\Twig\Extensions;
 
-use Twig\TwigFunction;
+use Illuminate\Http\Request as BaseRequest;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\ExtensionInterface;
-use Illuminate\Http\Request as BaseRequest;
+use Twig\TwigFunction;
 
 class Request extends AbstractExtension implements ExtensionInterface
 {

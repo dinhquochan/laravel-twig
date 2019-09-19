@@ -6,6 +6,11 @@ use Illuminate\Support\ServiceProvider;
 
 class TwigServiceProvider extends ServiceProvider
 {
+    /**
+     * Build-in extensions.
+     *
+     * @var array
+     */
     protected $extensions = [
         \DinhQuocHan\Twig\Extensions\Arr::class,
         \DinhQuocHan\Twig\Extensions\Auth::class,
@@ -124,7 +129,7 @@ class TwigServiceProvider extends ServiceProvider
     protected function registerCommands()
     {
         $this->app->extend('command.view.clear', function ($abstract, $app) {
-            return new TwigViewClearCommand($app['files']);
+            return new TwigViewClearCommand($abstract, $app['files']);
         });
     }
 
