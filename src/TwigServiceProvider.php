@@ -87,7 +87,7 @@ class TwigServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function registerEngineResolver()
+    protected function registerEngineResolver()
     {
         $this->app->extend('view.engine.resolver', function ($resolver) {
             $this->registerTwigEngine($resolver);
@@ -102,7 +102,7 @@ class TwigServiceProvider extends ServiceProvider
      * @param  \Illuminate\View\Engines\EngineResolver  $resolver
      * @return void
      */
-    public function registerTwigEngine($resolver)
+    protected function registerTwigEngine($resolver)
     {
         $resolver->register('twig', function () {
             return new TwigEngine($this->app['twig.environment']);
