@@ -3,6 +3,7 @@
 namespace DinhQuocHan\Twig;
 
 use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Console\ViewClearCommand;
 use RuntimeException;
 
