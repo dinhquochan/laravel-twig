@@ -2,6 +2,17 @@
 
 All notable changes to `laravel-twig` will be documented in this file
 
+## 0.1.2 - 2019-10-17
+
+- Fixed missing imports in `view:clear` command
+
+## 0.1.1 - 2019-09-20
+
+## 0.1.0 - 2019-09-20
+
+- Support Laravel 6.0
+- Sort imports by alphabet
+
 ## 0.0.3 - 2019-06-02
 
 - Fix bug, improvement
