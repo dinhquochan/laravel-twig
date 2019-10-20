@@ -132,6 +132,7 @@ class TwigServiceProvider extends ServiceProvider
     {
         if (! $this->app->has('command.view.clear')) {
             $this->commands(LumenTwigViewClearCommand::class);
+
             return;
         }
 

@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-twig` will be documented in this file
 
+## 0.1.3 - 2019-10-20
+
+- Support Lumen Framework
+- Can use `view:clear` command in Lumen
+- Add twig config, now you can disable built-in extensions
+
 ## 0.1.2 - 2019-10-17
 
 - Fixed missing imports in `view:clear` command
