@@ -7,31 +7,14 @@ use Illuminate\Support\ServiceProvider;
 class TwigServiceProvider extends ServiceProvider
 {
     /**
-     * Build-in extensions.
-     *
-     * @var array
-     */
-    protected $extensions = [
-        \DinhQuocHan\Twig\Extensions\Arr::class,
-        \DinhQuocHan\Twig\Extensions\Auth::class,
-        \DinhQuocHan\Twig\Extensions\Config::class,
-        \DinhQuocHan\Twig\Extensions\Dump::class,
-        \DinhQuocHan\Twig\Extensions\Gate::class,
-        \DinhQuocHan\Twig\Extensions\Path::class,
-        \DinhQuocHan\Twig\Extensions\Request::class,
-        \DinhQuocHan\Twig\Extensions\Session::class,
-        \DinhQuocHan\Twig\Extensions\Str::class,
-        \DinhQuocHan\Twig\Extensions\Translator::class,
-        \DinhQuocHan\Twig\Extensions\Url::class,
-    ];
-
-    /**
      * Register the application services.
      *
      * @return void
      */
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__.'/../config/twig.php', 'twig');
+
         $this->registerTwigLoader();
         $this->registerTwigEnvironment();
         $this->registerEngineResolver();
@@ -46,7 +29,9 @@ class TwigServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/../config/twig.php' => config_path('twig.php'),
+        ]);
     }
 
     /**
@@ -74,8 +59,9 @@ class TwigServiceProvider extends ServiceProvider
                 'debug' => $app['config']['app.debug'],
             ]), function (TwigEnvironment $environment) use ($app) {
                 $environment->addGlobal('app', $app);
+                $extensions = $app['config']->get('twig.extensions', []);
 
-                foreach ($this->extensions as $extension) {
+                foreach ($extensions as $extension) {
                     $environment->addExtension($app->make($extension));
                 }
             });

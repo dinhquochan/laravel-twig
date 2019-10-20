@@ -30,6 +30,11 @@ If you want to use the facade to extended twig extensions, add this to your faca
 ```php
 'Twig' => \DinhQuocHan\Twig\Facades\Twig::class,
 ```
+So, we will use Artisan to add the new twig config file:
+
+```
+php artisan vendor:publish --provider="DinhQuocHan\Twig\TwigServiceProvider"
+```
 
 ## Usage
 
