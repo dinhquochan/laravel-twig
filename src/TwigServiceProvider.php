@@ -29,6 +29,10 @@ class TwigServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (! $this->app->runningInConsole() || $this->app instanceof \Laravel\Lumen\Application) {
+            return;
+        }
+
         $this->publishes([
             __DIR__.'/../config/twig.php' => config_path('twig.php'),
         ]);
