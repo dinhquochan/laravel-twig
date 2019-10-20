@@ -2,6 +2,8 @@
 
 namespace DinhQuocHan\Twig;
 
+use DinhQuocHan\Twig\Console\LumenTwigViewClearCommand;
+use DinhQuocHan\Twig\Console\TwigViewClearCommand;
 use Illuminate\Support\ServiceProvider;
 
 class TwigServiceProvider extends ServiceProvider
@@ -65,7 +67,17 @@ class TwigServiceProvider extends ServiceProvider
                 $environment->addGlobal('app', $app);
                 $extensions = $app['config']->get('twig.extensions', []);
 
+                // Because, lumen is not support illuminate/session.
+                // If you want to use Session, must use Laravel instead.
+                $lumenIgnoreExtensions = [
+                    \DinhQuocHan\Twig\Extensions\Session::class,
+                ];
+
                 foreach ($extensions as $extension) {
+                    if ($app instanceof \Laravel\Lumen\Application && in_array($extension, $lumenIgnoreExtensions)) {
+                        continue;
+                    }
+
                     $environment->addExtension($app->make($extension));
                 }
             });
@@ -118,6 +130,11 @@ class TwigServiceProvider extends ServiceProvider
      */
     protected function registerCommands()
     {
+        if (! $this->app->has('command.view.clear')) {
+            $this->commands(LumenTwigViewClearCommand::class);
+            return;
+        }
+
         $this->app->extend('command.view.clear', function ($abstract, $app) {
             return new TwigViewClearCommand($abstract, $app['files']);
         });

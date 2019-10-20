@@ -1,6 +1,6 @@
 <?php
 
-namespace DinhQuocHan\Twig;
+namespace DinhQuocHan\Twig\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
