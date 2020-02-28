@@ -4,6 +4,7 @@ namespace DinhQuocHan\Twig\Tests;
 
 use DinhQuocHan\Twig\TwigEnvironment;
 use DinhQuocHan\Twig\TwigLoader;
+use Illuminate\Config\Repository;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application;
 use Illuminate\View\Engines\EngineResolver;
@@ -34,7 +35,7 @@ abstract class TestCase extends BaseTestCase
     protected function getTwigEnvironment()
     {
         return new TwigEnvironment($this->twigLoader, [
-            'cache' => __DIR__.'/compiled',
+            'cache' => __DIR__ . '/compiled',
             'debug' => true,
         ]);
     }
@@ -43,9 +44,9 @@ abstract class TestCase extends BaseTestCase
     {
         $filesystem = new Filesystem();
 
-        $finder = new FileViewFinder($filesystem, [__DIR__.'/views']);
+        $finder = new FileViewFinder($filesystem, [__DIR__ . '/views']);
         $finder->addExtension('twig');
-        $finder->addNamespace('namespace', __DIR__.'/views');
+        $finder->addNamespace('namespace', __DIR__ . '/views');
 
         $view = m::mock(Factory::class);
         $view->shouldReceive('getFinder')->andReturn($finder);
@@ -55,28 +56,28 @@ abstract class TestCase extends BaseTestCase
 
     protected function getApplication(array $customConfig = [])
     {
-        return tap(new Application, function ($app) {
-            /*
-             * @var \Illuminate\Foundation\Application $app
-             */
+        return tap(new Application, function (Application $app) {
             $app->instance('path', __DIR__);
 
-            // Default
+            // Default.
             $app['env'] = 'testing';
 
-            // Filesystem
-            $files = m::mock('Illuminate\Filesystem\Filesystem');
+            // Filesystem.
+            $files = m::mock(\Illuminate\Filesystem\Filesystem::class);
             $app['files'] = $files;
 
-            // View
-            $finder = m::mock('Illuminate\View\ViewFinderInterface');
+            // View.
+            $finder = m::mock(\Illuminate\View\ViewFinderInterface::class);
             $finder->shouldReceive('addExtension');
 
             $app['view'] = new Factory(
                 new EngineResolver,
                 $finder,
-                m::mock('Illuminate\Events\Dispatcher')
+                m::mock(\Illuminate\Events\Dispatcher::class)
             );
+
+            // Config.
+            $app['config'] = new Repository([]);
         });
     }
 }

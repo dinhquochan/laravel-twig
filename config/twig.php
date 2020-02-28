@@ -3,7 +3,18 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Twig extensions.
+    | Supported view file extensions
+    |--------------------------------------------------------------------------
+    |
+    | Add supported view file extensions. E.g: *.twig, *.html.twig, *.css.twig...
+    */
+   'file_extensions' => [
+        'twig', 'html.twig', 'css.twig',
+   ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Twig extensions
     |--------------------------------------------------------------------------
     |
     | Enabled twig extensions.
@@ -22,5 +33,4 @@ return [
         \DinhQuocHan\Twig\Extensions\Translator::class,
         \DinhQuocHan\Twig\Extensions\Url::class,
    ],
-
 ];

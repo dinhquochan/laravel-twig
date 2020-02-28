@@ -6,18 +6,9 @@ use Illuminate\Contracts\View\Engine;
 
 class TwigEngine implements Engine
 {
-    /**
-     * Twig Environment.
-     *
-     * @var \DinhQuocHan\Twig\TwigEnvironment
-     */
+    /*** @var \DinhQuocHan\Twig\TwigEnvironment */
     protected $environment;
 
-    /**
-     * Twig Engine constructor.
-     *
-     * @param  \DinhQuocHan\Twig\TwigEnvironment  $environment
-     */
     public function __construct(TwigEnvironment $environment)
     {
         $this->environment = $environment;

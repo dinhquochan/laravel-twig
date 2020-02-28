@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-twig` will be documented in this file
 
+## 1.0.0 - 2020-02-28
+
+- Support Twig 3.0
+- Does not support Lumen anymore
+- You can custom file view extensions
+
 ## 0.1.3 - 2019-10-20
 
 - Support Lumen Framework
@@ -13,6 +19,8 @@ All notable changes to `laravel-twig` will be documented in this file
 - Fixed missing imports in `view:clear` command
 
 ## 0.1.1 - 2019-09-20
+
+- Minor updates
 
 ## 0.1.0 - 2019-09-20
 

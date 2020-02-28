@@ -17,7 +17,7 @@
         "illuminate/console": "^6",
         "illuminate/support": "^6",
         "illuminate/view": "^6",
-        "twig/twig": "~2.0"
+        "twig/twig": "~3.0"
     },
     "require-dev": {
         "laravel/framework": "^6",

@@ -13,14 +13,14 @@ class TwigLoaderTest extends TestCase
     /** @test */
     public function make_sure_isFresh_method_is_working_well()
     {
-        $this->assertTrue($this->twigLoader->isFresh('welcome', INF));
+        $this->assertTrue($this->twigLoader->isFresh('welcome', 1500000000*2));
         $this->assertFalse($this->twigLoader->isFresh('welcome', 0));
     }
 
     /** @test */
     public function make_sure_getCacheKey_method_is_working_well()
     {
-        $this->assertEquals($this->twigLoader->getCacheKey('welcome'), '_twig.template.'.hash('sha256', 'welcome'));
+        $this->assertEquals($this->twigLoader->getCacheKey('welcome'), '_twig.template.' . hash('sha256', 'welcome'));
     }
 
     /** @test */

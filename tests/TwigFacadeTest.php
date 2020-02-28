@@ -18,27 +18,27 @@ class TwigFacadeTest extends TestCase
     {
         $app = $this->bootApplication();
 
-        $this->assertInstanceOf('\DinhQuocHan\Twig\TwigEnvironment', Twig::getFacadeRoot());
+        $this->assertInstanceOf(\DinhQuocHan\Twig\TwigEnvironment::class, Twig::getFacadeRoot());
     }
 
     protected function bootApplication()
     {
         $app = $this->getApplication();
 
-        $app['auth'] = m::mock('Illuminate\Contracts\Auth\Factory');
+        $app['auth'] = m::mock(\Illuminate\Contracts\Auth\Factory::class);
 
-        $app['view.finder'] = m::mock('Illuminate\View\ViewFinderInterface');
+        $app['view.finder'] = m::mock(\Illuminate\View\ViewFinderInterface::class);
 
         $app['config'] = new \Illuminate\Config\Repository([
             'app.debug' => true,
             'view.compiled' => __DIR__.'/compiled',
         ]);
 
-        $app['request'] = m::mock('Illuminate\Http\Request');
+        $app['request'] = m::mock(\Illuminate\Http\Request::class);
 
-        $app['session'] = m::mock('Illuminate\Session\SessionManager');
+        $app['session'] = m::mock(\Illuminate\Session\SessionManager::class);
 
-        $app['session.store'] = m::mock('Illuminate\Session\Store');
+        $app['session.store'] = m::mock(\Illuminate\Session\Store::class);
 
         $app['Illuminate\Contracts\Auth\Access\Gate'] = new \Illuminate\Auth\Access\Gate($app, function () {
             //

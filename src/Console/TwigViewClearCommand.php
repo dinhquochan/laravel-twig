@@ -9,41 +9,18 @@ use RuntimeException;
 
 class TwigViewClearCommand extends Command
 {
-    /**
-     * The console command name.
-     *
-     * @var string
-     */
+    /** @var string */
     protected $name = 'view:clear';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
+    /** @var string */
     protected $description = 'Clear all compiled view files';
 
-    /**
-     * Clear view command instance.
-     *
-     * @var \Illuminate\Foundation\Console\ViewClearCommand
-     */
+    /** @var \Illuminate\Foundation\Console\ViewClearCommand */
     protected $viewClearCommand;
 
-    /**
-     * The filesystem instance.
-     *
-     * @var \Illuminate\Filesystem\Filesystem
-     */
+    /** @var \Illuminate\Filesystem\Filesystem */
     protected $files;
 
-    /**
-     * Twig clear view command construct.
-     *
-     * @param  \Illuminate\Foundation\Console\ViewClearCommand  $viewClearCommand
-     * @param  \Illuminate\Filesystem\Filesystem  $files
-     * @return void
-     */
     public function __construct(ViewClearCommand $viewClearCommand, Filesystem $files)
     {
         parent::__construct();
@@ -53,13 +30,6 @@ class TwigViewClearCommand extends Command
         $this->files = $files;
     }
 
-    /**
-     * Execute the console command.
-     *
-     * @return void
-     *
-     * @throws \RuntimeException
-     */
     public function handle()
     {
         $this->viewClearCommand->handle();
