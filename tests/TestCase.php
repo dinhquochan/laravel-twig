@@ -21,8 +21,6 @@ abstract class TestCase extends BaseTestCase
 
     protected function setUp(): void
     {
-        parent::setUp();
-
         $this->twigLoader = $this->getTwigLoader();
         $this->twigEnvironment = $this->getTwigEnvironment();
     }
@@ -56,7 +54,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function getApplication(array $customConfig = [])
     {
-        return tap(new Application, function (Application $app) {
+        return tap(new Application(), function (Application $app) {
             $app->instance('path', __DIR__);
 
             // Default.
