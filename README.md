@@ -1,7 +1,7 @@
 # Laravel Twig
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dinhquochan/laravel-twig.svg?style=flat-square)](https://packagist.org/packages/dinhquochan/laravel-twig)
-[![Build Status](https://img.shields.io/travis/dinhquochan/laravel-twig/master.svg?style=flat-square)](https://travis-ci.org/dinhquochan/laravel-twig)
+![tests](https://github.com/dinhquochan/laravel-twig/workflows/tests/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/dinhquochan/laravel-twig.svg?style=flat-square)](https://packagist.org/packages/dinhquochan/laravel-twig)
 
 Allows you to use [Twig](https://twig.symfony.com/) in [Laravel](https://laravel.com/).
