@@ -4,7 +4,6 @@ namespace DinhQuocHan\Twig\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Foundation\Console\ViewClearCommand;
 use RuntimeException;
 
 class TwigViewClearCommand extends Command
@@ -15,25 +14,18 @@ class TwigViewClearCommand extends Command
     /** @var string */
     protected $description = 'Clear all compiled view files';
 
-    /** @var \Illuminate\Foundation\Console\ViewClearCommand */
-    protected $viewClearCommand;
-
     /** @var \Illuminate\Filesystem\Filesystem */
     protected $files;
 
-    public function __construct(ViewClearCommand $viewClearCommand, Filesystem $files)
+    public function __construct(Filesystem $files)
     {
         parent::__construct();
-
-        $this->viewClearCommand = $viewClearCommand;
 
         $this->files = $files;
     }
 
     public function handle()
     {
-        $this->viewClearCommand->handle();
-
         $path = $this->laravel['config']['view.compiled'];
 
         if (! $path) {
@@ -44,6 +36,9 @@ class TwigViewClearCommand extends Command
             if ($this->files->isDirectory($view)) {
                 $this->files->deleteDirectory($view);
                 continue;
+            }
+            if ($this->files->isFile($view)) {
+                $this->files->delete($view);
             }
         }
 

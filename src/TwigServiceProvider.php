@@ -89,7 +89,7 @@ class TwigServiceProvider extends ServiceProvider
     protected function registerCommands()
     {
         $this->app->extend('command.view.clear', function ($abstract, $app) {
-            return new TwigViewClearCommand($abstract, $app['files']);
+            return new TwigViewClearCommand($app['files']);
         });
     }
 }
