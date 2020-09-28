@@ -8,7 +8,7 @@ Allows you to use [Twig](https://twig.symfony.com/) in [Laravel](https://laravel
 
 ## Requirements
 
-- PHP >= 7.2.0
+- PHP >= 7.3.0
 - Laravel >= 6.x
 
 ## Installation
