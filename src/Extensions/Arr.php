@@ -17,7 +17,7 @@ class Arr extends AbstractExtension implements ExtensionInterface
     public function getFunctions()
     {
         return [
-            new TwigFunction('array_*', function ($name, $arguments) {
+            new TwigFunction('array_*', function ($name, ...$arguments) {
                 return call_user_func_array([\Illuminate\Support\Arr::class, Str::camel($name)], $arguments);
             }),
             new TwigFunction('data_fill', 'data_fill'),
