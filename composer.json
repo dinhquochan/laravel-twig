@@ -12,14 +12,14 @@
         }
     ],
     "require": {
-        "php": "^7.3.0",
-        "illuminate/console": "^6|^7|^8",
-        "illuminate/support": "^6|^7|^8",
-        "illuminate/view": "^6|^7|^8",
+        "php": "^7.3|^8.0",
+        "illuminate/console": "^6.20|^7.30|^8.28",
+        "illuminate/support": "^6.20|^7.30|^8.28",
+        "illuminate/view": "^6.20|^7.30|^8.28",
         "twig/twig": "~3.0"
     },
     "require-dev": {
-        "laravel/framework": "^6|^7|^8",
+        "laravel/framework": "^6.20|^7.30|^8.28",
         "mockery/mockery": "^1.3.1",
         "phpunit/phpunit": "^8.4|^9.0"
     },

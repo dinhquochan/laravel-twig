@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-twig` will be documented in this file
 
+## 1.1.0 - 2021-02-18
+
+- Add PHP 8.0 support
+- Update dependencies
+
+## 1.0.1 - 2020-10-21
+
+- Fix for array_* functions & str_* filters & functions not working.
+
 ## 1.0.0 - 2020-02-28
 
 - Support Twig 3.0
