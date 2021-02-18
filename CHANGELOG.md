@@ -2,6 +2,27 @@
 
 All notable changes to `laravel-twig` will be documented in this file
 
+## 1.4.0 - 2021-02-18
+
+- Add PHP 8.0 support
+- Update dependencies
+
+## 1.3.1 - 2020-10-21
+
+- Fix for array_* functions & str_* filters & functions not working.
+
+## 1.3.0 - 2020-09-28
+
+- Add support Laravel 8
+
+## 1.2.0 - 2020-03-03
+
+- Add support Laravel 7
+
+## 1.0.1 - 2020-02-29
+
+- Move TravisCI to Github Action
+
 ## 1.0.0 - 2020-02-28
 
 - Support Twig 3.0
