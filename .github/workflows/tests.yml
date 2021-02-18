@@ -15,14 +15,11 @@ jobs:
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - S${{ matrix.stability }}
 
     steps:
+      - name: Update apt
+        run: sudo apt-get update --fix-missing
+
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        with:
-          path: ~/.composer/cache/files
-          key: dependencies-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
